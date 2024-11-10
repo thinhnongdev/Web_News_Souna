@@ -4,5 +4,6 @@ public class News {
     String id;
     String title;
     String description;
+    String content;
     String date;
 }

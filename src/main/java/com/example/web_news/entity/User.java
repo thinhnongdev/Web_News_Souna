@@ -24,6 +24,6 @@ public class User {
     String modified_by;
     Boolean status;
     @ManyToOne
-    @Column(name = "role_id")
+    @JoinColumn(name = "role_id")
     Role role;
 }

@@ -23,9 +23,9 @@ public class Status {
     String modified_by;
     Boolean status;
     @ManyToOne
-    @Column(name = "user_id")
+    @JoinColumn(name = "user_id")
     User user;
     @ManyToOne
-    @Column(name = "user_id")
+    @JoinColumn(name = "news_id")
     News news;
 }

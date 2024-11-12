@@ -27,6 +27,6 @@ public class News {
     String modified_by;
     Boolean status;
     @ManyToOne
-    @Column(name = "category_id")
+    @JoinColumn(name = "category_id")
     Category category;
 }

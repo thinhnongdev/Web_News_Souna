@@ -22,5 +22,4 @@ public class Category {
     String create_by;
     String modified_by;
     Boolean status;
-
 }

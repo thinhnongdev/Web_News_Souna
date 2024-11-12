@@ -8,25 +8,19 @@ import lombok.experimental.FieldDefaults;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "category")
 @Data
-@Table(name = "news")
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class News {
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     String id;
     String code;
-    String title;
-    String short_description;
-    String thumbnail;
-    String description;
-    String content;
+    String name;
     LocalDateTime create_date;
     LocalDateTime modified_date;
     String create_by;
     String modified_by;
     Boolean status;
-    @ManyToOne
-    @Column(name = "category_id")
-    Category category;
+
 }

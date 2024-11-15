@@ -4,11 +4,11 @@ server:
     context-path: /Onionn
 
 spring:
- datasource:
+  datasource:
    url: "jdbc:mysql://localhost:3306/du_an2"
    username: root
    password: 123456
- mvc:
-   view:
-     prefix: /WEB-INF/views/
-     suffix: .jsp
+
+
+
+

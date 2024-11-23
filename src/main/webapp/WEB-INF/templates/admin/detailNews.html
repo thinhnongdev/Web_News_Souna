@@ -1,0 +1,34 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head th:replace="admin/fragments/head :: head"></head>
+<body>
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar -->
+    <div th:replace="admin/fragments/sidebar :: sidebar"></div>
+    <!--  Main  -->
+    <div class="body-wrapper">
+        <!--  Header  -->
+        <div th:replace="admin/fragments/header :: header"></div>
+        <!--Content  -->
+        <div class="container-fluid">
+
+            <h1>Trang Detail</h1>
+            <form>
+                <div class="row">
+                    <h2 th:utext="${article_preview.title}"></h2>
+                    <p th:text="${article_preview.short_description}"></p>
+                </div>
+                <div>
+                    <p th:text="${article_preview.content}"></p>
+                </div>
+            </form>
+        </div>
+        <!--Content End-->
+    </div>
+</div>
+</body>
+<footer>
+    <div th:replace="admin/fragments/footer :: footer"></div>
+</footer>
+</html>

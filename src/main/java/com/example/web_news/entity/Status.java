@@ -27,5 +27,5 @@ public class Status {
     User user;
     @ManyToOne
     @JoinColumn(name = "news_id")
-    News news;
+    Article article;
 }

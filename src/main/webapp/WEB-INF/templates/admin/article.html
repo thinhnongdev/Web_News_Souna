@@ -1,0 +1,71 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head th:replace="admin/fragments/head :: head"></head>
+<body>
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar -->
+    <div th:replace="admin/fragments/sidebar :: sidebar"></div>
+    <!--  Main  -->
+    <div class="body-wrapper">
+        <!--  Header  -->
+        <div th:replace="admin/fragments/header :: header"></div>
+        <!--Content  -->
+        <div class="container-fluid">
+
+            <div class="row">
+                <div class="col-10">
+                    <h1>Trang article</h1>
+                </div>
+                <div class="col-2">
+                    <a href="/admin/article/add" class="btn btn-success"><i class="fa-solid fa-plus"></i> Add</a>
+                </div>
+            </div>
+            <form action="">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Code</th>
+                        <th>Title</th>
+                        <th>Short description</th>
+                        <th>Thumbnail</th>
+                        <th>Create date</th>
+                        <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="article,stage : ${list_article}">
+                        <td th:text="${stage.count}"></td>
+                        <td th:text="${article.code}"></td>
+                        <td th:text="${article.title}"></td>
+                        <td th:text="${article.short_description}"></td>
+                        <td>
+                                <img th:src="@{${article.thumbnail}}" alt="" width="50" height="30">
+                        </td>
+                        <td th:text="${article.create_date}"></td>
+                        <td class="row">
+                            <a th:href="@{article/details/{id}(id=${article.id})}"
+                               class="d-flex align-items-center justify-content-center ms-1 col-3 btn btn-primary">
+                                <i class="fa-solid fa-eye"></i>
+                            </a>
+                            <a th:href="@{article/delete/{id}(id=${article.id})}"
+                               class="d-flex align-items-center justify-content-center ms-1 col-3 btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa không?')">
+                                <i class="fa-solid fa-trash"></i></a>
+                            <a th:href="@{article/update/{id}(id=${article.id})}"
+                               class="d-flex align-items-center justify-content-center ms-1 col-3 btn btn-info">
+                                <i class="fa-solid fa-pen-to-square"></i></a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+        <!--Content End-->
+    </div>
+</div>
+</body>
+<footer>
+    <div th:replace="admin/fragments/footer :: footer"></div>
+</footer>
+</html>

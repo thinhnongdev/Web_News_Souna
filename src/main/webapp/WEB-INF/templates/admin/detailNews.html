@@ -19,9 +19,8 @@
                     <h2 th:utext="${article_preview.title}"></h2>
                     <p th:text="${article_preview.short_description}"></p>
                 </div>
-                <div>
-                    <p th:text="${article_preview.content}"></p>
-                </div>
+                <!--content-->
+                <div th:utext="${article_preview.content}"></div >
             </form>
         </div>
         <!--Content End-->

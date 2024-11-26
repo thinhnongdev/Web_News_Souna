@@ -27,7 +27,7 @@ public class ArticleController {
     public String getFormAdd(Model model) {
         model.addAttribute("article",new Article());
         return "admin/formAddCategory";
-    }
+    } 
     @GetMapping("/article/update/{id}")
     public String getFormAddUpdate(@PathVariable("id") String id,Model model) {
         model.addAttribute("article",articleService.findByID(id));

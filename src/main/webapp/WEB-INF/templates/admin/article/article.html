@@ -24,36 +24,34 @@
             <form action="">
                 <table class="table table-hover">
                     <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Code</th>
-                        <th>Title</th>
-                        <th>Short description</th>
-                        <th>Thumbnail</th>
-                        <th>Create date</th>
-                        <th>Action</th>
+                    <tr class="row">
+                        <th class="col-1">#</th>
+                        <th class="col-2" >Code</th>
+                        <th class="col-3" >Title</th>
+                        <th class="col-2" >Thumbnail</th>
+                        <th class="col-2" >Create date</th>
+                        <th class="col-2" >Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="article,stage : ${list_article}">
-                        <td th:text="${stage.count}"></td>
-                        <td th:text="${article.code}"></td>
-                        <td th:text="${article.title}"></td>
-                        <td th:text="${article.short_description}"></td>
-                        <td>
-                                <img th:src="@{${article.thumbnail}}" alt="" width="50" height="30">
+                    <tr class="row" th:each="article,stage : ${list_article}">
+                        <td class="col-1" th:text="${stage.count}"></td>
+                        <td class="col-2" th:text="${article.code}"></td>
+                        <td class="col-3" th:text="${article.title}"></td>
+                        <td class="col-2">
+                                <img th:src="@{${article.thumbnail}}" alt="" width="150" height="80">
                         </td>
-                        <td th:text="${article.create_date}"></td>
-                        <td class="row">
+                        <td class="col-2" th:text="${article.create_date}"></td>
+                        <td class="row col-2">
                             <a th:href="@{article/details/{id}(id=${article.id})}"
-                               class="d-flex align-items-center justify-content-center ms-1 col-3 btn btn-primary">
+                               class="d-flex align-items-center justify-content-center ms-1 col-3 btn btn-primary" style="height: 30px">
                                 <i class="fa-solid fa-eye"></i>
                             </a>
                             <a th:href="@{article/delete/{id}(id=${article.id})}"
-                               class="d-flex align-items-center justify-content-center ms-1 col-3 btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa không?')">
+                               class="d-flex align-items-center justify-content-center ms-1 col-3 btn btn-danger" style="height: 30px" onclick="return confirm('Bạn có chắc muốn xóa không?')">
                                 <i class="fa-solid fa-trash"></i></a>
                             <a th:href="@{article/update/{id}(id=${article.id})}"
-                               class="d-flex align-items-center justify-content-center ms-1 col-3 btn btn-info">
+                               class="d-flex align-items-center justify-content-center ms-1 col-3 btn btn-info"  style="height: 30px">
                                 <i class="fa-solid fa-pen-to-square"></i></a>
                         </td>
                     </tr>

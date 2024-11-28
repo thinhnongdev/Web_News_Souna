@@ -1,4 +1,4 @@
-package com.example.web_news.dto.response;
+package com.example.web_news.dto.request;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -12,16 +12,15 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class ArticleResponse {
-    String code;
-    String title;
-    String short_description;
-    String thumbnail;
+public class CategoryUpdateRequest {
+    String id;
+    @NotNull
+    @Size(min = 2,message = "Name must be at least 2 characters")
+    String name;
+    @NotNull
+    @Size(min = 8,message = "Name must be at least 8 characters")
     String description;
-    String content;
-    String create_date;
-    String modified_date;
-    String create_by;
+    LocalDateTime modified_date;
     String modified_by;
     Boolean status;
 }

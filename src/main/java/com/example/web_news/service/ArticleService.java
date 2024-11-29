@@ -31,11 +31,11 @@ public class ArticleService {
         return articleRepository.findById(id).orElseThrow(() -> new RuntimeException("Not Found Article"));
     }
 
-    public Article add(ArticleCreationRequest request, String category_id) {
+    public Article add(ArticleCreationRequest request) {
         Article article=new Article();
         Random random=new Random();
         String code="NEWS"+random.nextInt(100000);
-        Category category=categoryRepository.findById(category_id).orElseThrow(()->new RuntimeException("Not Found Category"));
+        Category category=categoryRepository.findById(request.getCategory().getId()).orElseThrow(()->new RuntimeException("Not Found Category"));
         article.setCategory(category);
         article.setCode(code);
         article.setTitle(request.getTitle());

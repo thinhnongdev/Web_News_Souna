@@ -2,6 +2,7 @@ package com.example.web_news.controller.admin;
 
 import com.example.web_news.service.ArticleService;
 import com.example.web_news.service.CategoryService;
+import com.example.web_news.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,6 +17,8 @@ public class AdminController {
     ArticleService articleService;
     @Autowired
     CategoryService categoryService;
+    @Autowired
+    UserService userService;
     @GetMapping(value = {"dashboard", "/", ""})
     public String handleIndex() {
         return "admin/index";
@@ -32,6 +35,16 @@ public class AdminController {
         model.addAttribute("list_article", articleService.getAllArticle());
         return "admin/article/article";
     }
+    @GetMapping("/user")
+    public String handleAccount(Model model) {
+        model.addAttribute("list_user", userService.getAll());
+        return "admin/user/user";
+    }
+    @GetMapping("/login")
+    public String handleLogin() {
+        return "admin/authentication-login";
+    }
+
 
 
 

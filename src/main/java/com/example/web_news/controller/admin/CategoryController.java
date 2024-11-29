@@ -29,7 +29,7 @@ public class CategoryController {
             return "admin/category/formAddCategory";
         }
         categoryService.add(request);
-        return "redirect:/admin/category";
+        return "redirect:admin/category";
     }
     @GetMapping("/category/update/{id}")
     public String getFormUpdate(@PathVariable("id")String id, Model model){

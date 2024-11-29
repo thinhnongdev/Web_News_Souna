@@ -1,0 +1,78 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head th:replace="admin/fragments/head :: head"></head>
+<body>
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar -->
+    <div th:replace="admin/fragments/sidebar :: sidebar"></div>
+    <!--  Main  -->
+    <div class="body-wrapper">
+        <!--  Header  -->
+        <div th:replace="admin/fragments/header :: header"></div>
+        <!--Content  -->
+        <div class="container-fluid">
+
+            <h1>Trang add Account</h1>
+                <form method="post" th:action="@{/admin/user/update/{id}(id=${user.id})}" th:object="${user}">
+                <div class="row">
+                    <div class="row col-6">
+                        <div class="mb-3">
+                            <label class="form-label">Email</label>
+                            <input type="text" class="form-control" placeholder="email..." th:field="*{user_name}">
+                            <p th:errors="*{user_name}" style="color: red"></p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password </label>
+                            <input type="password" class="form-control" placeholder="password" name="pass_word" th:value="${user.pass_word}">
+                            <p th:errors="*{pass_word}" style="color: red"></p>
+                        </div>
+                    </div>
+                    <div class="row col-6">
+                        <div class="mb-3">
+                            <label class="form-label">Full name </label>
+                            <input type="text" class="form-control" placeholder="fullname.." th:field="*{full_name}">
+                            <p th:errors="*{full_name}" style="color: red"></p>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Role </label>
+                            <select class="form-select" th:field="*{role.id}">
+                                <option class="" th:each="role :${role_list}" th:value="${role.getId()}"
+                                        th:text="${role.getName()}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3 col-2">
+                        <label class="form-label">Status </label>
+                        <select class="form-select" th:field="*{active}">
+                            <option class="" th:value="true">Activate</option>
+                            <option class="" th:value="false">Block</option>
+                        </select>
+                    </div>
+                </div>
+                <!--<label class="form-label">Power: </label>
+                <div class="row mb-3">
+                <div class="mx-2 form-check col-1">
+                    <input class="form-check-input" type="radio" name="role" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        Admin
+                    </label>
+                </div>
+                <div class="form-check col-1">
+                    <input class="form-check-input" type="radio" name="role" value="" id="flexCheckChecked" checked>
+                    <label class="form-check-label" for="flexCheckChecked">
+                        User
+                    </label>
+                </div>
+                </div>-->
+                <button class="btn btn-primary">Save</button>
+            </form>
+        </div>
+        <!--Content End-->
+    </div>
+</div>
+</body>
+<footer>
+    <div th:replace="admin/fragments/footer :: footer"></div>
+</footer>
+</html>

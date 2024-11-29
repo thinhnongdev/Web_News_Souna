@@ -50,9 +50,9 @@ public class ArticleController {
     public String createActicle(@ModelAttribute("article") @Valid ArticleCreationRequest createRequest, BindingResult result,Model model) {
         if (result.hasErrors()) {
             model.addAttribute("article",createRequest);
-            return "admin/article/formAddCategory";
+            return "admin/article/formAddArticle";
         }
-        articleService.add(createRequest, createRequest.getCategory().getId());
+        articleService.add(createRequest);
         return "redirect:/admin/article";
     }
 

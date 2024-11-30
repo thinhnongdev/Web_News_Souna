@@ -19,7 +19,7 @@ public class AdminController {
     CategoryService categoryService;
     @Autowired
     UserService userService;
-    @GetMapping(value = {"dashboard", "/", ""})
+    @GetMapping(value = {"dashboard","/",""})
     public String handleIndex() {
         return "admin/index";
     }

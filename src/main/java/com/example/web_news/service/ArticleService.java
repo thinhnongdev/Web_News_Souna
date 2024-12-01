@@ -23,8 +23,12 @@ public class ArticleService {
     ArticleRepository articleRepository;
     CategoryRepository categoryRepository;
 
-    public List<Article> getAllArticle() {
-        return articleRepository.getAll();
+    public List<Article> getAllArticleForAdmin() {
+        return articleRepository.getAllforAdmin();
+    }
+
+    public List<Article> getAllArticleForUser() {
+        return articleRepository.getAllforUser();
     }
 
     public Article findByID(String id) {
@@ -32,10 +36,10 @@ public class ArticleService {
     }
 
     public Article add(ArticleCreationRequest request) {
-        Article article=new Article();
-        Random random=new Random();
-        String code="NEWS"+random.nextInt(100000);
-        Category category=categoryRepository.findById(request.getCategory().getId()).orElseThrow(()->new RuntimeException("Not Found Category"));
+        Article article = new Article();
+        Random random = new Random();
+        String code = "NEWS" + random.nextInt(100000);
+        Category category = categoryRepository.findById(request.getCategory().getId()).orElseThrow(() -> new RuntimeException("Not Found Category"));
         article.setCategory(category);
         article.setCode(code);
         article.setTitle(request.getTitle());
@@ -50,7 +54,7 @@ public class ArticleService {
     public Article update(String id, ArticleUpdateRequest article, String category_id) {
         Article article1 = articleRepository.findById(id).orElseThrow(() -> new RuntimeException("Not Found"));
         article1.setTitle(article.getTitle());
-        Category category=categoryRepository.findById(category_id).orElseThrow(()->new RuntimeException("Not Found Category"));
+        Category category = categoryRepository.findById(category_id).orElseThrow(() -> new RuntimeException("Not Found Category"));
         article1.setCategory(category);
         article1.setThumbnail(article.getThumbnail());
         article1.setShort_description(article.getShort_description());
@@ -63,5 +67,8 @@ public class ArticleService {
         Article article = articleRepository.findById(id).orElseThrow(() -> new RuntimeException("Not Found"));
         article.setStatus(false);
         articleRepository.save(article);
+    }
+    public List<Article> findByTitle(String title) {
+        return articleRepository.searchByTitleForUser("%"+title+"%");
     }
 }

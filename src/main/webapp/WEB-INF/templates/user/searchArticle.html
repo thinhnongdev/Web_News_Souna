@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html xmlns:th="https://www.thymeleaf.org" lang="en">
 <head th:replace="user/fragments/head :: head"></head>
@@ -12,25 +13,30 @@
     <div th:replace="user/fragments/header :: header"></div>
     <!-- Content -->
     <div class="content row d-flex justify-content-center">
-        <th:block th:each="article : ${articlesForUser}">
-            <a th:href="@{article/detail/{id}(id=${article.id})}" class="card m-3"
-               style="width:310px;height: 370px ;background-color: #1d1f27; border-radius:10px ;border: 1px solid #3e4450">
-                <div class="card-body">
+        <th:block th:each="article : ${search_article}">
+            <a th:href="@{article/detail/{id}(id=${article.id})}" class="card m-1 row"
+               style="width:810px;height: 180px ;background-color: #1d1f27; border-radius:10px ;border: 1px solid #3e4450">
+                <div class="card-body col-6">
                     <h4 class="card-title" style="color: white ;font-size: large;font-weight: bold"
                         th:text="${article.title}"></h4>
                     <p class="card-text" th:text="${article.short_description}"></p>
                     <!--  <a href="#" class="btn btn-primary">See Profile</a>-->
                 </div>
-                <img class="m-2 " th:src="@{${article.thumbnail}}" alt="Image" width="290" height="170"
-                     style="border-radius: 15px">
+                <div class="col-6 d-flex justify-content-end">
+                    <img class="m-2 " th:src="@{${article.thumbnail}}" alt="Image" width="280" height="160"
+                         style="border-radius: 15px">
+                </div>
+
             </a>
         </th:block>
     </div>
     <!-- /.content -->
     <!-- /#right-panel -->
-
     <!-- Footer -->
     <div th:replace="user/fragments/footer :: footer"></div>
 </div>
+
+
+
 </body>
 </html>

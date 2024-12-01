@@ -32,7 +32,7 @@ public class AdminController {
 
     @GetMapping("/article")
     public String handleArticle(Model model) {
-        model.addAttribute("list_article", articleService.getAllArticle());
+        model.addAttribute("list_article", articleService.getAllArticleForAdmin());
         return "admin/article/article";
     }
     @GetMapping("/user")

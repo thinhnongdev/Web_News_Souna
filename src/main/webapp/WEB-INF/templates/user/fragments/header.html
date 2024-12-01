@@ -1,0 +1,67 @@
+
+    <!-- Header-->
+    <header id="header" class="header" th:fragment="header">
+        <div class="top-left">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="./"><img th:src="@{/assets/images/logos/dark-logo.svg}" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="./"><img src="images/logo2.png" alt="Logo"></a>
+                <a id="menuToggle" class="menutoggle"><i class="fa fa-bars"></i></a>
+            </div>
+        </div>
+        <div class="top-right">
+            <div class="header-menu row">
+                <div class="col-9 d-flex justify-content-center mt-2">
+                    <form id="search" action="/search" method="get">
+                        <input type="text" id="search"  name="search" class="form-control" placeholder="Search..."
+                               style="width: 500px ;background-color: #1d1f27;border-radius: 15px;border-color: #1d1f27">
+                    </form>
+                </div>
+
+                <div class="header-left col-2 align-items-lg-end d-flex justify-content-end">
+                    <div class=" dropdown for-notification mb-1"
+                         style="background-color: #1d1f27 ;height: 45px; border-radius: 15px ">
+                        <button class="btn btn-secondary dropdown-toggle mb-2" type="button" id="notification"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa-regular fa-bell fa-xl "></i>
+                            <span class="count bg-danger">2</span>
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="notification">
+                            <p class="red">You have 3 Notification</p>
+                            <a class="dropdown-item media" href="#">
+                                <i class="fa fa-check"></i>
+                                <p>Server #1 overloaded.</p>
+                            </a>
+                            <a class="dropdown-item media" href="#">
+                                <i class="fa fa-info"></i>
+                                <p>Server #2 overloaded.</p>
+                            </a>
+                            <a class="dropdown-item media" href="#">
+                                <i class="fa fa-warning"></i>
+                                <p>Server #3 overloaded.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="user-area dropdown ">
+                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                        <img class="user-avatar rounded-circle" th:src="@{/assets/images/profile/user-1.jpg}" alt="">
+                    </a>
+
+                    <div class="user-menu dropdown-menu">
+                        <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+
+                        <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span
+                                class="count">13</span></a>
+
+                        <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
+
+                        <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+    <!-- /#header -->

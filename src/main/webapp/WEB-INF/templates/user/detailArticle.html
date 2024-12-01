@@ -1,0 +1,68 @@
+<!--
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head th:replace="admin/fragments/head :: head"></head>
+<body>
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+     data-sidebar-position="fixed" data-header-position="fixed">
+    &lt;!&ndash; Sidebar &ndash;&gt;
+    <div th:replace="admin/fragments/sidebar :: sidebar"></div>
+    &lt;!&ndash;  Main  &ndash;&gt;
+    <div class="body-wrapper">
+        &lt;!&ndash;  Header  &ndash;&gt;
+        <div th:replace="admin/fragments/header :: header"></div>
+        &lt;!&ndash;Content  &ndash;&gt;
+        <div class="container-fluid">
+
+            <h1>Trang Detail</h1>
+            <form>
+                <div class="row">
+                    <h2 th:utext="${article_preview.title}"></h2>
+                    <p th:text="${article_preview.short_description}"></p>
+                </div>
+                &lt;!&ndash;content&ndash;&gt;
+                <div th:utext="${article_preview.content}"></div >
+            </form>
+        </div>
+        &lt;!&ndash;Content End&ndash;&gt;
+    </div>
+</div>
+</body>
+<footer>
+    <div th:replace="admin/fragments/footer :: footer"></div>
+</footer>
+</html>
+-->
+
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head th:replace="user/fragments/head :: head"></head>
+
+<body style="background-color: #0f1317">
+<!-- Left Panel -->
+<div th:replace="user/fragments/sidebar :: sidebar"></div>
+<!-- /#left-panel -->
+
+<!-- Right Panel -->
+<div id="right-panel" class="right-panel">
+    <div th:replace="user/fragments/header :: header"></div>
+    <!-- Content -->
+    <div class="container-fluid" style="color: white">
+        <form>
+            <div>
+                <h1 th:utext="${article.title}"></h1>
+                <p th:text="${article.short_description}"></p>
+            </div>
+            <div th:utext="${article.content}"></div >
+        </form>
+    </div>
+    <!-- /.content -->
+    <!-- /#right-panel -->
+    <!-- Footer -->
+    <div th:replace="user/fragments/footer :: footer"></div>
+</div>
+
+
+
+</body>
+</html>

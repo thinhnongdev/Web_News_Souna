@@ -973,7 +973,8 @@ header .form-inline {
       display: none; }
 
 .header-left {
-  display: inline-block; }
+  display: inline-block;
+}
 
 .header-left.open .form-inline {
   display: block; }
@@ -1048,9 +1049,9 @@ header .form-inline {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
+ /* -webkit-box-pack: end;
       -ms-flex-pack: end;
-          justify-content: flex-end; }
+          justify-content: flex-end;*/ }
   .header-menu .dropdown {
     line-height: 55px;
     margin-top: 0 !important; }

@@ -17,7 +17,10 @@
                     </form>
                 </div>
 
-                <div class="header-left col-2 align-items-lg-end d-flex justify-content-end">
+                <div class="header-left col-3 align-items-lg-end d-flex justify-content-end">
+                    <div>
+                        <a class="m-2 btn" href="/createnewpost" style="background-color:#fefffe;color: #0f1219;font-weight: bold;border-radius: 15px">New post </a>
+                    </div>
                     <div class=" dropdown for-notification mb-1"
                          style="background-color: #1d1f27 ;height: 45px; border-radius: 15px ">
                         <button class="btn btn-secondary dropdown-toggle mb-2" type="button" id="notification"
@@ -41,25 +44,25 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                    <div class="user-area dropdown ">
+                        <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
+                           aria-expanded="false">
+                            <img class="user-avatar rounded-circle" th:src="@{/assets/images/profile/user-1.jpg}" alt="">
+                        </a>
 
-                <div class="user-area dropdown ">
-                    <a href="#" class="dropdown-toggle active" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false">
-                        <img class="user-avatar rounded-circle" th:src="@{/assets/images/profile/user-1.jpg}" alt="">
-                    </a>
+                        <div class="user-menu dropdown-menu">
+                            <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
 
-                    <div class="user-menu dropdown-menu">
-                        <a class="nav-link" href="#"><i class="fa fa- user"></i>My Profile</a>
+                            <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span
+                                    class="count">13</span></a>
 
-                        <a class="nav-link" href="#"><i class="fa fa- user"></i>Notifications <span
-                                class="count">13</span></a>
+                            <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
 
-                        <a class="nav-link" href="#"><i class="fa fa -cog"></i>Settings</a>
-
-                        <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                            <a class="nav-link" href="#"><i class="fa fa-power -off"></i>Logout</a>
+                        </div>
                     </div>
                 </div>
+
 
             </div>
         </div>

@@ -1,13 +1,12 @@
 package com.example.web_news.controller.user;
 
+import com.example.web_news.entity.Article;
 import com.example.web_news.service.ArticleService;
 import org.hibernate.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.thymeleaf.model.IModel;
 
 @Controller
@@ -28,5 +27,15 @@ public class ClientController {
     public String SearchArticle(@RequestParam("search") String title, Model model){
         model.addAttribute("search_article",articleService.findByTitle(title));
         return "user/searchArticle";
+    }
+    @GetMapping("/createnewpost")
+    public String GetFormCreateNewArticle( Model model){
+        model.addAttribute("newArticle",new Article());
+        return "user/formAddArticle";
+    }
+    @PostMapping("/createnewpost")
+    public String CreateNewArticle(@ModelAttribute("newArticle") Article article, Model model){
+        model.addAttribute("newArticle",article);
+        return "user/index";
     }
 }

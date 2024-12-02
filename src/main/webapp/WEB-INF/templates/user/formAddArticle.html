@@ -1,17 +1,17 @@
-<!doctype html>
+<!--<!doctype html>
 <html xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
 <head th:replace="admin/fragments/head :: head"></head>
 <body>
-<!-- Sidebar -->
+&lt;!&ndash; Sidebar &ndash;&gt;
 <div th:replace="admin/fragments/sidebar :: sidebar"></div>
-<!--  Header  -->
+&lt;!&ndash;  Header  &ndash;&gt;
 <div th:replace="admin/fragments/header :: header"></div>
 <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
      data-sidebar-position="fixed" data-header-position="fixed">
-    <!--  Main  -->
+    &lt;!&ndash;  Main  &ndash;&gt;
     <div class="body-wrapper">
 
-        <!--Content  -->
+        &lt;!&ndash;Content  &ndash;&gt;
         <div class="container-fluid">
 
             <h1>Trang add</h1>
@@ -45,7 +45,7 @@
                 <button class="btn btn-primary">Save</button>
             </form>
         </div>
-        <!--Content End-->
+        &lt;!&ndash;Content End&ndash;&gt;
     </div>
 </div>
 </body>
@@ -55,4 +55,67 @@
         CKEDITOR.replace('ckeditor_content');
     </script>
 </footer>
+</html>-->
+
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head th:replace="user/fragments/head :: head"></head>
+
+<body style="background-color: #0f1317">
+<!-- Left Panel -->
+<div th:replace="user/fragments/sidebar :: sidebar"></div>
+<!-- /#left-panel -->
+
+<!-- Right Panel -->
+<div id="right-panel" class="right-panel">
+    <div th:replace="user/fragments/header :: header"></div>
+    <!-- Content -->
+    <div class="body-wrapper row  d-flex justify-content-center">
+
+        <!--Content  -->
+        <div class="container-fluid col-8 mt-4" style="background-color: #fefffe;border-radius: 15px">
+            <form method="post" action="create" th:object="${newArticle}">
+                <div class="  ">
+                    <div class="mb-3">
+                        <label class="form-label" style="color: #8188a0">Title</label>
+                        <input type="text" class="form-control" placeholder="title..." th:field="*{title}" >
+                        <p th:errors="*{title}" style="color: red"></p>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" style="color: #8188a0">Short description</label>
+                        <input type="text" class="form-control" placeholder="Short description..." th:field="*{short_description}" >
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" style="color: #8188a0">URL thumbnail</label>
+                        <input type="text" class="form-control" placeholder="Url.." th:field="*{thumbnail}" >
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" style="color: #8188a0">Category</label>
+                        <select class="form-select" th:field="*{category.id}">
+                            <option class="" th:each="cate :${categorylist}" th:value="${cate.getId()}" th:text="${cate.getName()}"></option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label  class="form-label" style="color: #8188a0">Content</label>
+                        <textarea class="form-control" id="ckeditor_content" placeholder="content..."></textarea>
+                        <p th:errors="*{content}" style="color: red"></p>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-success ">Post</button>
+                </div>
+
+            </form>
+        </div>
+        <!--Content End-->
+    </div>
+    <!-- /.content -->
+    <!-- /#right-panel -->
+    <!-- Footer -->
+    <div th:replace="user/fragments/footer :: footer"></div>
+    <script type="text/javascript">
+        CKEDITOR.replace('ckeditor_content');
+    </script>
+</div>
+</body>
 </html>
